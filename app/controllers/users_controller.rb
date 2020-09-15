@@ -9,6 +9,10 @@ class UsersController < ApplicationController
       email: params[:email],
       password: params[:password]
     )
-    render json: user
+    if user 
+      render json: user
+    else 
+      render json: 'Failed to create user'
+    end
   end
 end

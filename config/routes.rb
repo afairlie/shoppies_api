@@ -5,6 +5,6 @@ Rails.application.routes.draw do
 
   resource :users, only: [:create]
   # /login
-  post "/login", to: "authentication#login"
+  post '/login' => "authentication#login"
   # /auto_login?
 end
