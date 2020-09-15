@@ -1,24 +1,11 @@
-# README
+# Shoppies API
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+An API to track users and nominations for Shoppies App.
 
-Things you may want to cover:
+Built with a Token authorization flow, using JWT.
 
-* Ruby version
+### Available Routes
 
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+POST /login
+POST /users -> signup
+GET /nominations -> protected route to retrieve user nominations resource
