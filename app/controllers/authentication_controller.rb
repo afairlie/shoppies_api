@@ -3,13 +3,13 @@ class AuthenticationController < ApplicationController
     user = User.find_by(email: params[:email])
 
     if !user
-      render json: { error: "invalid email"}
-    end
-
-    if user.authenticate(params[:password])
+      render json: { error: "invalid email"},
+      status: :unauthorized
+    elsif user.authenticate(params[:password])
       render json: { message: "Correct password!"}
     else 
-      render json: { message: "Incorrect password :("}
+      render json: { message: "Incorrect password :("},
+      status: :unauthorized
     end
   end
 end
