@@ -4,7 +4,7 @@ Rails.application.routes.draw do
   get 'api/private' => 'private#private'
 
   resource :users, only: [:create]
+  resource :nominations, only: [:create, :index, :update]
   # /login
   post '/login' => "authentication#login"
-  # /auto_login?
 end
