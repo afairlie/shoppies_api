@@ -9,7 +9,7 @@ class AuthenticationController < ApplicationController
       payload = {
         id: user.id,
         email: user.email,
-        exp: 2.minutes.from_now.to_i }
+        exp: 5.minutes.from_now.to_i }
       token = JWT.encode(payload, Rails.application.credentials.dig(:secret_key_base))
       render json: { token: token }
     else 
