@@ -12,7 +12,7 @@ class NominationsController < ApplicationController
       rescue JWT::ExpiredSignature
         render status: :unauthorized, json: { error: 'Expired Token' }
       rescue JWT::DecodeError
-        render status: :unauthorized
+        render status: :unauthorized, json: { error: 'Decode Error'}
       end
     end
   end
