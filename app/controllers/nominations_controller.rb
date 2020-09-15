@@ -4,8 +4,8 @@ class NominationsController < ApplicationController
     if !authorization_header
       render status: :unauthorized
     else 
-      token = authorization_header.split[1]
-      decoded_token = JWT.decode(token, Rails.application.credentials.dig(:secret_key_base))[0]
+      token = authorization_header.split.last
+      decoded_token = JWT.decode(token, Rails.application.credentials.dig(:secret_key_base)).first
       nominations = User.find(decoded_token["id"]).nomination
       render json: {'nominations': nominations}
     end
