@@ -4,7 +4,7 @@ Rails.application.routes.draw do
   get 'api/private' => 'private#private'
 
   resource :users, only: [:create]
-  resource :nominations, only: [:create, :index, :update]
+  resource :nominations, only: [:create, :show]
   # /login
   post '/login' => "authentication#login"
 end
