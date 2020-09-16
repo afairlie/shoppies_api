@@ -6,7 +6,7 @@ class NominationsController < ApplicationController
     else 
       token = auth_header.split.last
       begin
-        decoded_token = JWT.decode(token, Rails.application.credentials.dig(:secret_key_base)).first
+        decoded_token = JWT.decode(token, Rails.application.credentials.dig(:secret_key_base), true, algorithm: 'HS256').first
         nominations = User.find(decoded_token["id"]).nomination
         render json: { nominations: nominations }
       rescue JWT::ExpiredSignature
