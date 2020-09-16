@@ -4,6 +4,10 @@ An API to track users and nominations for Shoppies App.
 
 Built with a Token authorization flow, using JWT.
 
+### Hosted with Heroku
+
+https://shoppy-awards-api.herokuapp.com/
+
 ### Available Routes
 
 POST /login
