@@ -11,7 +11,8 @@ class AuthenticationController < ApplicationController
         email: user.email,
         exp: 5.minutes.from_now.to_i }
       token = JWT.encode(payload, Rails.application.credentials.dig(:secret_key_base))
-      render json: { token: token }
+      # is it ok to send username in open, or do I need to keep in token payload and decode?
+      render json: { token: token, username: user.name }
     else 
       render json: { message: "Incorrect password :("},
       status: :unauthorized
