@@ -2,7 +2,7 @@ class NominationsController < ApplicationController
   def show
     auth_header = request.headers[:authorization]
     if !auth_header
-      render status: :unauthorized
+      render status: :unauthorized, json: {error: 'Unauthorized'}
     else 
       token = auth_header.split.last
       begin
