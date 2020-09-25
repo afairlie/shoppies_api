@@ -11,5 +11,7 @@ https://shoppy-awards-api.herokuapp.com/
 ### Available Routes
 
 POST /login
+
 POST /users -> signup
+
 GET /nominations -> protected route to retrieve user nominations resource
