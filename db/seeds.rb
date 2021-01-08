@@ -7,4 +7,5 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 
 User.create(name: "ariane", email: "fairwoodclean@gmail.com", password: "tweedle")
+User.create(name: "test", email: "test@email.com", password: "fakepassword")
 Nomination.create(user_id: 1, '1': 'tt0078788', '2': 'tt3385516', '3': 'tt0318627', '4': 'tt1727776', '5': 'tt1673430')

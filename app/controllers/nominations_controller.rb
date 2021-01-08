@@ -4,9 +4,17 @@ class NominationsController < ApplicationController
   end
   
   def create
-    nom = params[:nomination]
-    @user.nomination.update('1': nom['1'], '2': nom['2'], '3': nom['3'], '4': nom['4'], '5': nom['5'])
+    noms = params[:nomination].to_unsafe_h
+    if noms.length() == 5
+      if @user.nomination
+        @user.nomination.update(noms)
+      else
+        noms[:user_id] = @user.id
+        new_noms = Nomination.new(noms)
+        new_noms.save()
+      end
+    end
+    # TO DO: send back new nominations from create
     render json: { token: @token, nominations: @user.nomination }
   end
-
 end
