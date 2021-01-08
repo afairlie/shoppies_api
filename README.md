@@ -15,3 +15,7 @@ POST /login
 POST /users -> signup
 
 GET /nominations -> protected route to retrieve user nominations resource
+POST /nominations -> route to add/update nominations
+
+### In Development
+bin/rails -s
