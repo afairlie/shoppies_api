@@ -4,17 +4,18 @@ class NominationsController < ApplicationController
   end
   
   def create
-    noms = params[:nomination].to_unsafe_h
+    noms = params[:nomination].permit(['1'], ['2'], ['3'], ['4'], ['5']).to_h
+
     if noms.length() == 5
       if @user.nomination
         @user.nomination.update(noms)
       else
         noms[:user_id] = @user.id
-        new_noms = Nomination.new(noms)
-        new_noms.save()
+        new_noms = Nomination.create(noms)
       end
+      return render json: { token: @token, nominations: new_noms || noms }
     end
-    # TO DO: send back new nominations from create
-    render json: { token: @token, nominations: @user.nomination }
+
+    render json: { token: @token, message: "failed to create/update nominations"}
   end
 end
