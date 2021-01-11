@@ -1,12 +1,39 @@
-<h1>Welcome to the Shoppies API</h1>
+<style>
+  div {
+    margin: 10px 0;
+  }
 
-<h2>Available Routes</h2>
-<p>
-  POST /login
-  <br/>
-  POST /users -> signup
-  <br/>
-  GET /nominations -> protected route to retrieve user nominations
-  <br/>
-  POST /nominations -> protected route to create/update user nominations
-</p>
+  p {
+    padding: 0;
+    margin: 0;
+    margin-bottom: 2px;
+  }
+</style>
+
+<main>
+  <h1>Welcome to the Shoppies API</h1>
+
+  <h2>Available Routes</h2>
+  <div>
+    <div>
+      <p>POST /login</p>
+      <p>JSON: "{"email": "***", "password": "***"}"</p>
+    </div>
+
+    <div>
+      <p>POST /users -> signup</p>
+      <p>JSON: "{"email": "***", "password": "***", "name": "***"}"</p>
+    </div>
+
+    <div>
+      <p>GET /nominations -> protected route to retrieve user nominations</p>
+      <p>headers: {authorization: 'bearer <token>'}</p>
+    </div>
+
+    <div>
+      <p>POST /nominations -> protected route to create/update user nominations</p>
+      <p>headers: {authorization: 'bearer <token>', type: 'application/json'}</p>
+      <p>JSON: "{"1": "omdbID", "2": "omdbID", "3": "omdbID", "4": "omdbID", "5": "omdbID"}"</p>
+    </div>
+  </div>
+</main>
