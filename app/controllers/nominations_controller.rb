@@ -5,7 +5,7 @@ class NominationsController < ApplicationController
   
   def create
     noms = params[:nomination].permit(['1'], ['2'], ['3'], ['4'], ['5']).to_h
-
+    
     if noms.length() == 5
       if @user.nomination
         @user.nomination.update(noms)

@@ -10,6 +10,7 @@ class AuthenticationController < ApplicationController
       if user.authenticate(params[:password])
         payload = {
           id: user.id,
+          username: user.name,
           email: user.email,
           exp: 5.minutes.from_now.to_i }
         token = JWT.encode(payload, Rails.application.credentials.dig(:secret_key_base))
