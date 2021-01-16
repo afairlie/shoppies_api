@@ -6,34 +6,107 @@
   p {
     padding: 0;
     margin: 0;
-    margin-bottom: 2px;
+    margin-bottom: 5px;
+  }
+
+  .green {
+    color: green;
   }
 </style>
 
 <main>
   <h1>Welcome to the Shoppies API</h1>
 
+  <h2>Github Repository</h2>
+  <div>
+    <a href='https://github.com/afairlie/shoppies_api' target='_blank' rel='noreferer'>https://github.com/afairlie/shoppies_api</a>
+  </div>
+
   <h2>Available Routes</h2>
   <div>
     <div>
+      <h3>Login</h3>
       <p>POST /login</p>
-      <p>JSON: "{"email": "***", "password": "***"}"</p>
+      <pre>JSON: {"email": "_____", "password": "____"}</pre>
+
+      <p class='green'>200 Response:</p>
+      <pre> 
+        {
+          "token": "header.payload.signature",
+          "username": "test",
+          "nominations": {
+              "id": 2,
+              "1": "tt0078788",
+              "2": "tt3385516",
+              "3": "tt0318627",
+              "4": "tt1727776",
+              "5": "tt1673430",
+              "user_id": 2,
+              "created_at": "2021-01-11T04:46:21.982Z",
+              "updated_at": "2021-01-11T04:46:21.982Z"
+          }
+        }
+      </pre>
     </div>
 
     <div>
-      <p>POST /users -> signup</p>
-      <p>JSON: "{"email": "***", "password": "***", "name": "***"}"</p>
+      <h3>Sign Up</h3>
+      <p>POST /users</p>
+      <pre>JSON: {"email": "_____", "password": "_____", "name": "_____"}</pre>
+      <p class='green'>200 Response:</p>
+      <pre>
+        {
+          "token": "header.payload.signature",
+          "username": "test"
+        }
+      </pre>
     </div>
 
     <div>
-      <p>GET /nominations -> protected route to retrieve user nominations</p>
-      <p>headers: {authorization: 'bearer <token>'}</p>
+      <h3>Retrieve Nominations</h3>
+      <p>GET /nominations</p>
+      <p>protected route to retrieve user nominations</p>
+      <pre>headers: { authorization: 'bearer [token]' }</pre>
+      <p class='green'>200 Response:<p>
+      <pre>
+        {
+          "nominations": {
+              "id": 2,
+              "1": "tt0068162",
+              "2": "tt0296514",
+              "3": "tt7259638",
+              "4": "tt0197389",
+              "5": "tt1700796",
+              "user_id": 2,
+              "created_at": "2021-01-11T04:52:22.601Z",
+              "updated_at": "2021-01-11T06:32:59.048Z"
+          }
+        }
+      </pre>
     </div>
 
     <div>
-      <p>POST /nominations -> protected route to create/update user nominations</p>
-      <p>headers: {authorization: 'bearer <token>', type: 'application/json'}</p>
-      <p>JSON: "{"1": "omdbID", "2": "omdbID", "3": "omdbID", "4": "omdbID", "5": "omdbID"}"</p>
+      <h3>Create/Update Nominations</h3>
+      <p>POST /nominations</p>
+      <p>protected route to create/update user nominations</p>
+      <pre>headers: { 
+            authorization: 'bearer [token]', 
+            type: 'application/json' 
+          }</pre>
+      <pre>JSON: {"1": "OmdbID", "2": "OmdbID", "3": "OmdbID", "4": "OmdbID", "5": "OmdbID"}</pre>
+      <p class='green'>200 Response:</p>
+      <pre>
+        {
+          "token": "header.payload.signature",
+          "nominations": {
+            "1": "tt0078788",
+            "2": "tt3385516",
+            "3": "tt0318627",
+            "4": "tt1727776",
+            "5": "tt1673430"
+          }
+        }
+      </pre>
     </div>
   </div>
 </main>
