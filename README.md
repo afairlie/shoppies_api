@@ -24,4 +24,6 @@ POST /nominations -> route to create/update nominations
 
 ### In Development
 
-bin/rails -s
+rails -s
+
+### [Get the Documentation On the Site](https://shoppy-awards-api.herokuapp.com/)
