@@ -14,7 +14,6 @@ class AuthenticationController < ApplicationController
           email: user.email,
           exp: 5.minutes.from_now.to_i }
         token = JWT.encode(payload, Rails.application.credentials.dig(:secret_key_base))
-        # is it ok to expose username, or do I need to keep in token payload and decode?
         render json: { token: token, username: user.name, nominations: user.nomination }
       else 
         render json: { error: "Incorrect password"},
