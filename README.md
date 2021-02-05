@@ -29,7 +29,7 @@ https://shoppy-awards-api.herokuapp.com/
 
  Download or fork and clone the repository:
 
- https://github.com/afairlie/shoppies2.0
+ https://github.com/afairlie/shoppies_api
 
  `unzip shoppies_api-master.zip`
  
